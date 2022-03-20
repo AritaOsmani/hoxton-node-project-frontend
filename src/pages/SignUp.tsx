@@ -60,7 +60,7 @@ export default function SignUp({ user, setUser }: Props) {
                 <input type="text" name="fName" placeholder='First name' required />
                 <input type="text" name='lName' placeholder='Last name' required />
                 <input type="email" name="email" placeholder='Email' required />
-                <textarea name="bio" cols={5} rows={10} placeholder='Bio...'></textarea>
+                <textarea name="bio" cols={5} rows={5} placeholder='Bio...'></textarea>
                 <input type="text" name="avatar" placeholder='Avatar URL' />
                 <input type="password" name="password" placeholder='Password' required />
                 <input type="password" name="confirmPass" placeholder='Confirm password' required />

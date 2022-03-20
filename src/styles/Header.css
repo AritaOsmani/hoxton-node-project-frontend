@@ -1,18 +1,24 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
 .header-container{
-    border:solid 1px rgba(0, 0, 0, 0.3);
+    border:solid 1px rgba(0, 0, 0, 0.2);
     display: grid;
     grid-template-columns: 250px 1fr 300px auto;
     place-items: center;
     padding: 15px 150px;
     gap:20px;
+   
 }
 .header-container h1{
     font-size: 30px;
     cursor: pointer;
     margin-left: 70px;
+    font-family: 'Oswald', sans-serif;
 }
 .search-from{
    width: 100%;
+   margin-top: 5px;
 }
 .search-from input{
     height:30px;
@@ -63,9 +69,10 @@
     place-items: center;
     gap:15px;
     border: solid 1px #f79918;
-    padding:10px 30px;
+    padding:7px 30px;
     border-radius: 10px;
     cursor: pointer;
+    position: relative;
 }
 
 .user-info span{
@@ -81,4 +88,21 @@
     font-size: 16px;
    margin-top:5px;
    color: #f79918;
+}
+
+.acc-info{
+    display: grid;
+    position: absolute;
+    right:268px;
+    top:60px;
+    border: solid 1px #f79918;
+    padding:10px;
+    gap:10px;
+    place-items: start;
+    width: 160px;
+    z-index: 10;
+    background-color: white;
+}
+.acc-info span{
+    cursor: pointer;
 }

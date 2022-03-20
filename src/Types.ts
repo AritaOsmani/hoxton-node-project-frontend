@@ -36,3 +36,9 @@ export type SignUpFrom = HTMLFormElement & {
     avatar: HTMLInputElement,
     reset: () => void
 }
+
+export type LogInForm = HTMLFormElement & {
+    email: HTMLInputElement,
+    password: HTMLInputElement,
+    reset: () => void
+}

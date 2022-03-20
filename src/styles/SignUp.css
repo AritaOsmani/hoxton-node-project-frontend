@@ -2,7 +2,7 @@
 .signup-container{
     display: grid;
     place-items: center;
-    padding:10px;
+    padding:30px;
     position: fixed;
     left:0;
     right:0;
@@ -13,7 +13,7 @@
     border: solid 2px #f79918;
     border-radius: 30px;
     padding:50px 60px;
-    gap:10px;
+    gap:12px;
     width: 500px;
 }
 .signup-form h1{
