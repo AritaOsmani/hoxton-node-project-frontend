@@ -25,3 +25,14 @@ export type Category = {
     id: number,
     name: string
 }
+
+export type SignUpFrom = HTMLFormElement & {
+    fName: HTMLInputElement,
+    lName: HTMLInputElement,
+    email: HTMLInputElement,
+    bio: HTMLTextAreaElement,
+    password: HTMLInputElement,
+    confirmPass: HTMLInputElement,
+    avatar: HTMLInputElement,
+    reset: () => void
+}
