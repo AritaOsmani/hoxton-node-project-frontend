@@ -5,6 +5,7 @@ import Footer from './components/Footer'
 import Header from './components/Header'
 import Main from './components/Main'
 import LogIn from './pages/LogIn'
+import NewArticlePage from './pages/NewArticlePage'
 import SignUp from './pages/SignUp'
 import UserPage from './pages/UserPage'
 import { User } from './Types'
@@ -44,6 +45,7 @@ function App() {
         <Route path='/signup' element={<SignUp user={user} setUser={setUser} />} />
         <Route path='/login' element={<LogIn setUser={setUser} />} />
         <Route path='/user/:email' element={<UserPage />} />
+        <Route path='/create-article' element={<NewArticlePage />}/>
       </Routes>
       <Footer />
     </div>
