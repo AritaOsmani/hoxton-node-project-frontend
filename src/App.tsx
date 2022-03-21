@@ -43,7 +43,7 @@ function App() {
         <Route path='/' element={<Main />} />
         <Route path='/signup' element={<SignUp user={user} setUser={setUser} />} />
         <Route path='/login' element={<LogIn setUser={setUser} />} />
-        {/* <Route path='/user/:email' element={<UserPage />} /> */}
+        <Route path='/user/:email' element={<UserPage />} />
       </Routes>
       <Footer />
     </div>
