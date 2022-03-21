@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import './App.css'
+import Footer from './components/Footer'
 import Header from './components/Header'
 import Main from './components/Main'
 import LogIn from './pages/LogIn'
@@ -42,6 +43,7 @@ function App() {
         <Route path='/signup' element={<SignUp user={user} setUser={setUser} />} />
         <Route path='/login' element={<LogIn setUser={setUser} />} />
       </Routes>
+      <Footer />
     </div>
   )
 }
