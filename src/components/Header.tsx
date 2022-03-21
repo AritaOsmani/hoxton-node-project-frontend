@@ -80,7 +80,11 @@ export default function Header({ user, setUser }: Props) {
                     navigate('/signup')
                 }}>Sign up</button>
             </div>
-            <i className="fal fa-bars"></i>
+            <i className="fal fa-bars" onClick={() => {
+
+                setSideMenu(true)
+
+            }}></i>
             {sideMenu ? <div className='side-menu'>
                 <button className='close-btn' onClick={() => {
                     setSideMenu(false)
