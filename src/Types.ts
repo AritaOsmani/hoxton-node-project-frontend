@@ -43,3 +43,8 @@ export type LogInForm = HTMLFormElement & {
     password: HTMLInputElement,
     reset: () => void
 }
+
+export type SubscribeForm = HTMLFormElement & {
+    email: HTMLInputElement,
+    reset: () => void
+}
