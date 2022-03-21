@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import '../styles/Header.css'
-import { User } from '../types'
+import { User } from '../Types'
 
 type Props = {
     user: User | null
@@ -10,6 +10,7 @@ type Props = {
 export default function Header({ user, setUser }: Props) {
     const navigate = useNavigate()
     const [accMenu, setAccMenu] = useState(false)
+    const [sideMenu, setSideMenu] = useState(false)
 
     function signOut() {
         localStorage.removeItem('token')
@@ -44,7 +45,21 @@ export default function Header({ user, setUser }: Props) {
                         signOut()
                     }}>Sign out</span>
                 </div> : null}
-                <i className="fal fa-bars"></i>
+                <i className="fal fa-bars" onClick={() => {
+
+                    setSideMenu(true)
+
+                }}></i>
+                {sideMenu ? <div className='side-menu'>
+                    <button className='close-btn' onClick={() => {
+                        setSideMenu(false)
+                    }}>X</button>
+                    <span>Home</span>
+                    <span>Travel</span>
+                    <span>Business</span>
+                    <span>Lifestyle</span>
+                </div> : null}
+
             </div>
         )
     }
@@ -66,6 +81,15 @@ export default function Header({ user, setUser }: Props) {
                 }}>Sign up</button>
             </div>
             <i className="fal fa-bars"></i>
+            {sideMenu ? <div className='side-menu'>
+                <button className='close-btn' onClick={() => {
+                    setSideMenu(false)
+                }}>X</button>
+                <span>Home</span>
+                <span>Travel</span>
+                <span>Business</span>
+                <span>Lifestyle</span>
+            </div> : null}
         </div>
     )
 }

@@ -6,7 +6,7 @@ import Header from './components/Header'
 import Main from './components/Main'
 import LogIn from './pages/LogIn'
 import SignUp from './pages/SignUp'
-import { User } from './types'
+import { User } from './Types'
 
 const userModel = {
   id: 2,
