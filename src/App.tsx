@@ -3,9 +3,10 @@ import { Route, Routes } from 'react-router-dom'
 import './App.css'
 import Header from './components/Header'
 import Main from './components/Main'
+import CreatePost from './pages/CreatePost'
 import LogIn from './pages/LogIn'
 import SignUp from './pages/SignUp'
-import { User } from './types'
+import { User } from './Types'
 
 const userModel = {
   id: 2,
@@ -41,6 +42,7 @@ function App() {
         <Route path='/' element={<Main />} />
         <Route path='/signup' element={<SignUp user={user} setUser={setUser} />} />
         <Route path='/login' element={<LogIn setUser={setUser} />} />
+        <Route path='/createPost' element={<CreatePost user={user}/>} />
       </Routes>
     </div>
   )

@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import '../styles/Header.css'
-import { User } from '../types'
+import { User } from '../Types'
 
 type Props = {
     user: User | null
     setUser: React.Dispatch<React.SetStateAction<User | null>>
 }
+
 export default function Header({ user, setUser }: Props) {
     const navigate = useNavigate()
     const [accMenu, setAccMenu] = useState(false)

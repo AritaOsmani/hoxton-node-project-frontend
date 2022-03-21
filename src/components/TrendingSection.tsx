@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import CarouselItem from './CarouselItem'
 import '../styles/TrendingSection.css'
 import Carousel from 'react-material-ui-carousel'
-import { Article } from '../types'
+import { Article } from '../Types'
 export default function TrendingSection() {
 
     const [trendingArticles, setTrendingArticles] = useState<Article[]>([])
@@ -16,7 +16,6 @@ export default function TrendingSection() {
             }
         })
     }, [])
-
 
     return (
         <div className='trending-container'>
