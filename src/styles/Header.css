@@ -109,7 +109,7 @@
 
 .side-menu{
     display: grid;
-    gap:10px;
+    gap:20px;
     border-left: solid 1px rgba(0, 0, 0, 0.3);
     position: fixed;
     right:0;
@@ -119,10 +119,15 @@
     z-index: 20;
     background-color: white;
     padding:30px 10px;
-    width: 200px;
+    width: 250px;
 }
 .side-menu span{
     text-align: start;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.side-menu span:hover{
+    transform: scale(1.05);
 }
 .close-btn{
     position: absolute;

@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import '../styles/Header.css'
-import { User } from '../Types'
+import { User, Category } from '../Types'
 
 type Props = {
     user: User | null
@@ -11,6 +11,11 @@ export default function Header({ user, setUser }: Props) {
     const navigate = useNavigate()
     const [accMenu, setAccMenu] = useState(false)
     const [sideMenu, setSideMenu] = useState(false)
+    const [categories, setCategories] = useState<Category[]>([])
+
+    useEffect(() => {
+        fetch(`http://localhost:4000/categories`).then(res => res.json()).then(data => setCategories(data))
+    }, [])
 
     function signOut() {
         localStorage.removeItem('token')
@@ -55,9 +60,9 @@ export default function Header({ user, setUser }: Props) {
                         setSideMenu(false)
                     }}>X</button>
                     <span>Home</span>
-                    <span>Travel</span>
-                    <span>Business</span>
-                    <span>Lifestyle</span>
+                    {categories.map(category => <span>{category.name}</span>)}
+
+
                 </div> : null}
 
             </div>
@@ -90,9 +95,8 @@ export default function Header({ user, setUser }: Props) {
                     setSideMenu(false)
                 }}>X</button>
                 <span>Home</span>
-                <span>Travel</span>
-                <span>Business</span>
-                <span>Lifestyle</span>
+                {categories.map(category => <span>{category.name}</span>)}
+
             </div> : null}
         </div>
     )
