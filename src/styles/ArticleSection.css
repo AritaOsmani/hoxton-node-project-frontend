@@ -1,0 +1,41 @@
+.articles-section{
+
+}
+
+.articles-list{
+    display: grid;
+    grid-template-columns: repeat(3,300px);
+    place-content: center;
+    gap:40px;
+    padding:20px 0;
+}
+
+.article-item{
+    display: grid;
+    /* width:300px; */
+    place-items: start;
+   
+}
+.article-img{
+    border-radius: 10px;
+}
+.article-item .article-info{
+    padding: 10px 5px;
+    gap:5px;
+}
+.article-item .category-date span{
+    font-size:13px;
+}
+.article-item .article-title{
+    font-size: 18px;
+}
+.article-item p{
+    font-size:11px;
+}
+
+.article-item .author-name{
+    font-size: 12px;
+}
+.article-item .author-bio{
+    font-size: 11px;
+}
