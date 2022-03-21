@@ -18,7 +18,8 @@ export type Article = {
     content: string,
     createdAt: string,
     userId: number,
-    categories: Category[]
+    categories: Category[],
+    author: User
 }
 
 export type Category = {

@@ -1,22 +1,30 @@
 import React from 'react'
+import { getCategories, getDate } from '../helpers'
 import '../styles/Carouseltem.css'
-export default function CarouselItem() {
+import { Article } from '../types'
+
+type Props = {
+    trendingArticle: Article
+}
+
+export default function CarouselItem({ trendingArticle }: Props) {
+
     return (
         <div className='carousel-item-container'>
-            <img src="https://preview.colorlib.com/theme/magdesign/images/ximg_2.jpg.pagespeed.ic.fbbBEgB1Q6.webp" alt="" />
+            <img src={trendingArticle.image} alt="" />
             <div className='article-info'>
                 <div className='category-date'>
-                    <span>Business,Travel</span>
-                    <span className='date'> -July 2, 2020</span>
+                    <span>{getCategories(trendingArticle.categories)}</span>
+                    <span className='date'> - {getDate(trendingArticle.createdAt)}</span>
                 </div>
 
-                <h1 className='article-title'>Your most unhappy customers are your greatest source of learning.</h1>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+                <h1 className='article-title'>{trendingArticle.title}</h1>
+                <p>{trendingArticle.intro}</p>
                 <div className='author-info'>
-                    <img src="https://preview.colorlib.com/theme/magdesign/images/xperson_1.jpg.pagespeed.ic.Zebptmx_f8.webp" alt="" />
+                    <img src={trendingArticle.author.avatarImage} alt="" />
                     <div className='name-bio'>
-                        <span className='author-name'>Name Surname</span>
-                        <span className='author-bio'>bio</span>
+                        <span className='author-name'>{`${trendingArticle.author.firstName} ${trendingArticle.author.lastName}`}</span>
+                        <span className='author-bio'>{trendingArticle.author.bio}</span>
                     </div>
                 </div>
             </div>
