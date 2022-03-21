@@ -6,6 +6,7 @@ import Header from './components/Header'
 import Main from './components/Main'
 import LogIn from './pages/LogIn'
 import SignUp from './pages/SignUp'
+import UserPage from './pages/UserPage'
 import { User } from './Types'
 
 const userModel = {
@@ -42,6 +43,7 @@ function App() {
         <Route path='/' element={<Main />} />
         <Route path='/signup' element={<SignUp user={user} setUser={setUser} />} />
         <Route path='/login' element={<LogIn setUser={setUser} />} />
+        {/* <Route path='/user/:email' element={<UserPage />} /> */}
       </Routes>
       <Footer />
     </div>
