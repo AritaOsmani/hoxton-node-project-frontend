@@ -1,25 +1,25 @@
-import { useState } from "react";
-import { Editor, EditorState } from "react-draft-wysiwyg";
+import { ContentState, convertFromRaw, convertToRaw } from "draft-js";
+import { useEffect, useState } from "react";
+import {EditorState} from 'draft-js';
+import { Editor,  } from "react-draft-wysiwyg";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 
+type Props={
+    setContentState:Function
+}
 
-export default function WysiwygEditor(){
-        const [editorState, setEditorState] = useState(() => 
-            EditorState.createEmpty(),
-        )
-            
-        const [stateWithContent, setStateWithContent] = useState()
+export default function WysiwygEditor({setContentState}:Props){
+        const [editorState, setEditorState] = useState(EditorState.createEmpty())
         return(
         <>
             <Editor
                 editorState={editorState}
-                onEditorStateChange={()=>{
-                    console.log(editorState.getCurrentContent());
+                onEditorStateChange={setEditorState}
+                onContentStateChange={(event)=>{
+                    setContentState(event)
                 }}
+
             />
-            {/* <Editor
-                editorState={stateWithContent}
-            /> */}
         </>
     )
 }
