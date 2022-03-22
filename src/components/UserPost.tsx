@@ -1,5 +1,5 @@
 import React from 'react'
-import { getDate } from '../helpers'
+import { getCategories, getDate } from '../helpers'
 import { Article } from '../Types'
 
 type Props = {
@@ -13,7 +13,7 @@ export default function UserPost({ article }: Props) {
             <div className='additional-info'>
                 <div className='article-info'>
                     <div className='category-date'>
-                        {/* <span>Travel</span> */}
+                        <span>{getCategories(article.categories)}</span>
                         <span className='date'> - {getDate(article.createdAt)}</span>
                     </div>
 
