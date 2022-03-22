@@ -44,8 +44,8 @@ function App() {
         <Route path='/' element={<Main />} />
         <Route path='/signup' element={<SignUp user={user} setUser={setUser} />} />
         <Route path='/login' element={<LogIn setUser={setUser} />} />
-        <Route path='/user/:email' element={<UserPage />} />
-        <Route path='/create-article' element={<NewArticlePage user={user} />}/>
+        <Route path='/user/:username' element={<UserPage />} />
+        <Route path='/create-article' element={<NewArticlePage user={user} />} />
       </Routes>
       <Footer />
     </div>

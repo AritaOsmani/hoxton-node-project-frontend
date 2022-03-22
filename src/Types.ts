@@ -4,6 +4,7 @@ export type User = {
     password: string,
     firstName: string,
     lastName: string,
+    username: string,
     bio?: string,
     avatarImage: string,
     joinedAt: string,
