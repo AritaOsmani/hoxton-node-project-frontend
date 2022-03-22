@@ -1,5 +1,6 @@
 import React from 'react'
 import { getCategories, getDate } from '../helpers'
+import PositionedMenu from '../Menu/PositionedMenu'
 import { Article } from '../Types'
 
 type Props = {
@@ -18,7 +19,8 @@ export default function UserPost({ article, currentUser }: Props) {
                         <div className='category-date-user'>
                             <span>{getCategories(article.categories)}</span>
                             <span className='date'> - {getDate(article.createdAt)}</span>
-                            <i className="far fa-ellipsis-h"></i>
+                            {/* <i className="far fa-ellipsis-h"></i> */}
+                            <PositionedMenu />
                         </div>
 
                         <h1 className='article-title'>{article.title}</h1>

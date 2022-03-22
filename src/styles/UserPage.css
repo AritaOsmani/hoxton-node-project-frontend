@@ -2,6 +2,9 @@
     display: grid;
     gap:20px;
     padding: 20px;
+   
+}
+.user-page-item-container{
     cursor: pointer;
 }
 .user-div{
@@ -64,19 +67,16 @@
 
 .category-date-user{
     display: grid;
-    grid-template-columns: repeat(3,auto) ;
+    grid-template-columns: repeat(2,auto) 50px ;
     gap:5px;
     place-content: start;
     width: 100%;
+  
 }
 
 .category-date-user .fa-ellipsis-h{
-    font-size: 20px;
-    /* justify-self: end; */
+    font-size: 22px;
     cursor: pointer;
     margin-left: 370px;
-    display: none;
-}
-.user-page-container:hover .fa-ellipsis-h{
-    display: block;
+    color: #787A91;
 }
