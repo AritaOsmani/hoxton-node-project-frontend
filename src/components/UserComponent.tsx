@@ -1,12 +1,17 @@
 import React from 'react'
+import { User } from '../Types'
 
-export default function UserComponent() {
+type Props = {
+    user: User | null
+}
+
+export default function UserComponent({ user }: Props) {
     return (
         <div className='user-div'>
             <div className='user-info-container'>
-                <img src="https://preview.colorlib.com/theme/magdesign/images/xperson_1.jpg.pagespeed.ic.Zebptmx_f8.webp" alt="" className='avatar' />
-                <h1>Name Surname</h1>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Provident, culpa.</p>
+                <img src={user?.avatarImage} alt="" className='avatar' />
+                <h1>{`${user?.firstName} ${user?.lastName}`}</h1>
+                <p>{user?.bio}</p>
             </div>
 
         </div>

@@ -1,13 +1,15 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import { getCategories, getDate } from '../helpers'
 import '../styles/Carouseltem.css'
-import { Article } from '../types'
+import { Article } from '../Types'
 
 type Props = {
     trendingArticle: Article
 }
 
 export default function CarouselItem({ trendingArticle }: Props) {
+    const navigate = useNavigate()
 
     return (
         <div className='carousel-item-container'>
@@ -20,7 +22,10 @@ export default function CarouselItem({ trendingArticle }: Props) {
 
                 <h1 className='article-title'>{trendingArticle.title}</h1>
                 <p>{trendingArticle.intro}</p>
-                <div className='author-info'>
+                <div className='author-info' onClick={(e) => {
+                    e.stopPropagation()
+                    navigate(`/user/${trendingArticle.author.email}`)
+                }}>
                     <img src={trendingArticle.author.avatarImage} alt="" />
                     <div className='name-bio'>
                         <span className='author-name'>{`${trendingArticle.author.firstName} ${trendingArticle.author.lastName}`}</span>
