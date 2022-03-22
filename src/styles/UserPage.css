@@ -2,6 +2,7 @@
     display: grid;
     gap:20px;
     padding: 20px;
+    cursor: pointer;
 }
 .user-div{
     display: grid;
@@ -59,4 +60,23 @@
 }
 .user-page-item-container .article-info{
     padding: 5px 15px;
+}
+
+.category-date-user{
+    display: grid;
+    grid-template-columns: repeat(3,auto) ;
+    gap:5px;
+    place-content: start;
+    width: 100%;
+}
+
+.category-date-user .fa-ellipsis-h{
+    font-size: 20px;
+    /* justify-self: end; */
+    cursor: pointer;
+    margin-left: 370px;
+    display: none;
+}
+.user-page-container:hover .fa-ellipsis-h{
+    display: block;
 }

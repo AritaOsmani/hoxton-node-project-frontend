@@ -6,8 +6,9 @@ import { User, Category } from '../Types'
 type Props = {
     user: User | null
     setUser: React.Dispatch<React.SetStateAction<User | null>>
+    setCurrentUser: React.Dispatch<React.SetStateAction<boolean>>
 }
-export default function Header({ user, setUser }: Props) {
+export default function Header({ user, setUser, setCurrentUser }: Props) {
     const navigate = useNavigate()
     const [accMenu, setAccMenu] = useState(false)
     const [sideMenu, setSideMenu] = useState(false)
@@ -21,6 +22,7 @@ export default function Header({ user, setUser }: Props) {
         localStorage.removeItem('token')
         setUser(null)
         setAccMenu(false)
+        setCurrentUser(false)
     }
 
     if (user) {

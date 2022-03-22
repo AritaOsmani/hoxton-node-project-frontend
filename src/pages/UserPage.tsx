@@ -5,9 +5,16 @@ import UserComponent from '../components/UserComponent'
 import '../styles/UserPage.css'
 import { User } from '../Types'
 
-export default function UserPage() {
+type Props = {
+    userLoggedIn: User | null
+    currentUser: boolean
+    setCurrentUser: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+export default function UserPage({ userLoggedIn, currentUser, setCurrentUser }: Props) {
     const params = useParams()
     const [user, setUser] = useState<User | null>(null)
+    // const [currentUser, setCurrentUser] = useState(false)
 
     useEffect(() => {
         fetch(`http://localhost:4000/users/${params.username}`).then(res => res.json())
@@ -16,14 +23,18 @@ export default function UserPage() {
                     alert(data.error)
                 } else {
                     setUser(data)
+                    if (data.username === userLoggedIn?.username) {
+                        setCurrentUser(true)
+                    }
                 }
             })
-    }, [params.username])
+    }, [params.username, userLoggedIn])
 
+    if (user === null) return <h1>User not found</h1>
     return (
         <div className='user-page-container'>
             <UserComponent user={user} />
-            <UserArticles articles={user?.articles} />
+            <UserArticles articles={user?.articles} currentUser={currentUser} />
         </div>
     )
 }
