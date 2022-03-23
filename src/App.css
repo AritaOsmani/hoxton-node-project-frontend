@@ -1,4 +1,15 @@
 .App {
-  text-align: center;
+    text-align: center;
 }
 
+
+/* 
+.css-ktslay-MuiButtonBase-root-MuiIconButton-root {
+    background-color: #787A91;
+} */
+
+.css-hn784z button,
+.css-1abc02a button {
+    background-color: black !important;
+    opacity: 1 !important;
+}

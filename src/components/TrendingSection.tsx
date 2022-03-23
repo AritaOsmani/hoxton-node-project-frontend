@@ -21,6 +21,7 @@ export default function TrendingSection() {
     return (
         <div className='trending-container'>
             <h1>Trending</h1>
+            
             <Carousel>
                 {
                     trendingArticles.map(item => <CarouselItem trendingArticle={item} key={item.id} />)

@@ -27,7 +27,6 @@ const userModel = {
 
 function App() {
   const [user, setUser] = useState<User | null>(null)
-  const [currentUser, setCurrentUser] = useState(false)
 
   useEffect(() => {
     if (localStorage.token) {
@@ -43,12 +42,12 @@ function App() {
 
   return (
     <div className="App">
-      <Header user={user} setUser={setUser} setCurrentUser={setCurrentUser} />
+      <Header user={user} setUser={setUser} />
       <Routes>
         <Route path='/' element={<Main />} />
         <Route path='/signup' element={<SignUp user={user} setUser={setUser} />} />
         <Route path='/login' element={<LogIn setUser={setUser} />} />
-        <Route path='/user/:username' element={<UserPage userLoggedIn={user} currentUser={currentUser} setCurrentUser={setCurrentUser} />} />
+        <Route path='/user/:username' element={<UserPage user={user}/>} />
         <Route path='/create-article' element={<NewArticlePage user={user} />} />
         <Route path='/article/:id' element={<SingleArticlePage />} />
         <Route path='/update-article/:id' element={<UpdateArticlePage user={user} />} />
