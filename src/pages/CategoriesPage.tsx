@@ -10,9 +10,14 @@ export default function CategoriesPage() {
     const categoryName = params.category
     const [categoryArticles, setCategoryArticles] = useState<Article[]>([])
     const [pageNumber, setPageNumber] = useState(1)
-    const [totalNumOfArticles, setTotalNumOfArticles] = useState(1)
+    const [totalNumOfPages, setTotalNumOfPages] = useState(1)
 
 
+    useEffect(()=>{
+        setPageNumber(1)
+        setTotalNumOfPages(1)
+    },[categoryName])    
+    
     useEffect(() => {
         // if (pageNumber > totalNumOfArticles) {
         //     setPageNumber(1)
@@ -23,10 +28,11 @@ export default function CategoriesPage() {
                     alert(data.error)
                 } else {
                     setCategoryArticles(data.articles)
-                    setTotalNumOfArticles(data.articlesCount)
+                    setTotalNumOfPages(Math.ceil(data.articlesCount/3))
                 }
             })
     }, [categoryName, pageNumber])
+
 
     return (
         <div className='categories-page-container'>
@@ -37,7 +43,7 @@ export default function CategoriesPage() {
 
             </ul>
             <div className='pagination-container'>
-                <PaginationSize setPageNumber={setPageNumber} totalNumOfArticles={totalNumOfArticles} />
+                <PaginationSize setPageNumber={setPageNumber} totalNumOfPages={totalNumOfPages} />
             </div>
 
         </div>
