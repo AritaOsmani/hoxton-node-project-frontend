@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import '../styles/LogIn.css'
-import { LogInForm, User } from '../types'
+import { LogInForm, User } from '../Types'
 
 type Props = {
     setUser: React.Dispatch<React.SetStateAction<User | null>>
@@ -24,6 +24,7 @@ export default function LogIn({ setUser }: Props) {
                 } else {
                     localStorage.setItem('token', data.token)
                     setUser(data.user)
+                    navigate('/')
                 }
             })
     }
@@ -36,7 +37,6 @@ export default function LogIn({ setUser }: Props) {
                 const password = formEl.password.value;
                 login(email, password)
                 formEl.reset()
-                navigate('/')
             }}>
                 <h1>Welcome</h1>
                 <input type="email" name="email" placeholder='Email' required />
