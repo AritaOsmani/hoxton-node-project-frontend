@@ -4,8 +4,8 @@ li{
 
 .categories-page-container{
     display: grid;
-    gap:30px;
-    place-content: center;
+    gap:20px;
+    /* place-content: center; */
     padding:30px 80px;
 }
 .categories-page-container .category-title{

@@ -47,11 +47,13 @@ export default function Header({ user, setUser, setCurrentUser }: Props) {
                     <i className="far fa-angle-down"></i>
                 </div>
                 {accMenu ? <div className='acc-info'>
-                    <span onClick={()=>{
+                    <span onClick={() => {
                         navigate(`/user/${user.username}`)
+                        setAccMenu(false)
                     }}>My account</span>
-                    <span onClick={()=>{
+                    <span onClick={() => {
                         navigate('/create-article')
+                        setAccMenu(false)
                     }}>Create Article</span>
                     <span onClick={() => {
                         signOut()
@@ -66,8 +68,12 @@ export default function Header({ user, setUser, setCurrentUser }: Props) {
                     <button className='close-btn' onClick={() => {
                         setSideMenu(false)
                     }}>X</button>
-                    <span>Home</span>
-                    {categories.map(category => <span>{category.name}</span>)}
+                    <span onClick={() => {
+                        navigate('/')
+                    }}>Home</span>
+                    {categories.map(category => <span onClick={() => {
+                        navigate(`/categories/${category.name}`)
+                    }}>{category.name}</span>)}
 
 
                 </div> : null}
@@ -101,8 +107,12 @@ export default function Header({ user, setUser, setCurrentUser }: Props) {
                 <button className='close-btn' onClick={() => {
                     setSideMenu(false)
                 }}>X</button>
-                <span>Home</span>
-                {categories.map(category => <span>{category.name}</span>)}
+                <span onClick={() => {
+                    navigate('/')
+                }}>Home</span>
+                {categories.map(category => <span onClick={() => {
+                    navigate(`/categories/${category.name}`)
+                }}>{category.name}</span>)}
 
             </div> : null}
         </div>

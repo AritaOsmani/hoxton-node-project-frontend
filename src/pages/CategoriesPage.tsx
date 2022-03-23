@@ -8,7 +8,7 @@ export default function CategoriesPage() {
     const params = useParams()
     return (
         <div className='categories-page-container'>
-            <h1 className='category-title'>Travel</h1>
+            <h1 className='category-title'>{params.category}</h1>
             <hr />
             <ul className='categories-articles-list'>
                 <CategoryArticle />
