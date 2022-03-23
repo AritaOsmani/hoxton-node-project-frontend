@@ -10,6 +10,7 @@
     place-items: start;
     gap:10px;
     margin-left:290px ;
+    cursor: pointer;
 }
 .most-popular-article .category-date{
     display: grid;
