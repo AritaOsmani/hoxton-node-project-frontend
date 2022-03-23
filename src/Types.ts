@@ -49,3 +49,9 @@ export type SubscribeForm = HTMLFormElement & {
     email: HTMLInputElement,
     reset: () => void
 }
+export type Like = {
+    likes: number
+}
+export type PopularArticle = Article & {
+    _count: Like
+}

@@ -1,20 +1,26 @@
 import React from 'react'
+import { getCategories, getDate } from '../helpers'
+import { PopularArticle } from '../Types'
 
-export default function MostPopularArticle() {
+type Props = {
+    popularArticle: PopularArticle
+}
+
+export default function MostPopularArticle({ popularArticle }: Props) {
     return (
         <div className='most-popular-article'>
-            <img src="https://preview.colorlib.com/theme/magdesign/images/ximg_7.jpg.pagespeed.ic.gXZ9SRS6-c.webp" alt="" />
+            <img src={popularArticle.image} alt="" />
             <div className='category-date'>
-                <span className='category'>Business, Travel</span>
-                <span className='date'>- July 2, 2020</span>
+                <span className='category'>{getCategories(popularArticle.categories)}</span>
+                <span className='date'>-{getDate(popularArticle.createdAt)}</span>
             </div>
-            <h1>Your most unhappy customers are your greatest source of learning.</h1>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+            <h1>{popularArticle.title}</h1>
+            <p>{popularArticle.intro}</p>
             <div className='author-info'>
-                <img src="https://preview.colorlib.com/theme/magdesign/images/xperson_1.jpg.pagespeed.ic.Zebptmx_f8.webp" alt="" />
+                <img src={popularArticle.author.avatarImage} alt="" />
                 <div className='name-bio'>
-                    <span className='author-name'>Name Surname</span>
-                    <span className='author-bio'>bio</span>
+                    <span className='author-name'>{`${popularArticle.author.firstName} ${popularArticle.author.lastName}`}</span>
+                    <span className='author-bio'>{popularArticle.author.bio}</span>
                 </div>
             </div>
 
