@@ -1,36 +1,40 @@
-.most-popular-container{
+.most-popular-container {
     display: grid;
-    gap:40px;
-    padding:20px 60px;
+    gap: 40px;
+    padding: 20px 60px;
 }
 
-.most-popular-article{
+.most-popular-article {
     display: grid;
     width: 800px;
     place-items: start;
-    gap:10px;
-    margin-left:290px ;
+    gap: 10px;
+    margin: auto;
     cursor: pointer;
 }
-.most-popular-article .category-date{
+
+.most-popular-article .category-date {
     display: grid;
-    grid-template-columns: repeat(2,auto);
-    gap:5px;
+    grid-template-columns: repeat(2, auto);
+    gap: 5px;
     font-size: 15px;
 }
-.most-popular-article h1{
+
+.most-popular-article h1 {
     font-size: 25px;
     text-align: start;
 }
-.most-popular-article p{
+
+.most-popular-article p {
     font-size: 15px;
     text-align: start;
-    color:#787A91;
+    color: #787A91;
 }
-.most-popular-article .author-info{
+
+.most-popular-article .author-info {
     display: grid;
     grid-template-columns: 50px 200px;
     /* border: solid 1px black; */
-    padding:10px;
-    gap:20px;
+    padding: 10px;
+    gap: 20px;
 }

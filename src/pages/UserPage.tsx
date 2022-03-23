@@ -37,7 +37,7 @@ export default function UserPage({ user }: Props) {
                 setUserMatches(false)
             } 
         }
-    },[userFetched])
+    },[userFetched,user])
 
     if (userFetched === null) return <h1>User not found</h1>
     return (
