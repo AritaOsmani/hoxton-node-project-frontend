@@ -13,11 +13,11 @@ export default function CategoriesPage() {
     const [totalNumOfPages, setTotalNumOfPages] = useState(1)
 
 
-    useEffect(()=>{
+    useEffect(() => {
         setPageNumber(1)
         setTotalNumOfPages(1)
-    },[categoryName])    
-    
+    }, [categoryName])
+
     useEffect(() => {
         // if (pageNumber > totalNumOfArticles) {
         //     setPageNumber(1)
@@ -28,7 +28,7 @@ export default function CategoriesPage() {
                     alert(data.error)
                 } else {
                     setCategoryArticles(data.articles)
-                    setTotalNumOfPages(Math.ceil(data.articlesCount/3))
+                    setTotalNumOfPages(Math.ceil(data.articlesCount / 3))
                 }
             })
     }, [categoryName, pageNumber])
