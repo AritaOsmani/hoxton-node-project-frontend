@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import { getCategories, getDate } from '../helpers'
 import { Article } from '../Types'
 
@@ -7,8 +8,11 @@ type Props = {
 }
 
 export default function CategoryArticle({ article }: Props) {
+    const navigate = useNavigate()
     return (
-        <div className='category-page-article-item'>
+        <div className='category-page-article-item' onClick={() => {
+            navigate(`/article/${article.id}`)
+        }}>
             <img src={article.image} alt="" />
             <div className='category-page-article-info'>
                 <div className='category-page-category-date-user'>
@@ -21,12 +25,12 @@ export default function CategoryArticle({ article }: Props) {
                 </p>
                 <div className='author-info' onClick={(e) => {
                     e.stopPropagation()
-                    // navigate(`/user/${trendingArticle.author.username}`)
+                    navigate(`/user/${article.author.username}`)
                 }}>
-                    <img src="https://preview.colorlib.com/theme/magdesign/images/xperson_1.jpg.pagespeed.ic.Zebptmx_f8.webp" alt="" />
+                    <img src={article.author.avatarImage} alt="" />
                     <div className='name-bio'>
-                        <span className='author-name'>Name Surname</span>
-                        <span className='author-bio'>Lorem, ipsum dolor.</span>
+                        <span className='author-name'>{`${article.author.firstName} ${article.author.lastName}`}</span>
+                        <span className='author-bio'>{article.author.bio}</span>
                     </div>
                 </div>
             </div>

@@ -19,9 +19,7 @@ export default function CategoriesPage() {
     }, [categoryName])
 
     useEffect(() => {
-        // if (pageNumber > totalNumOfArticles) {
-        //     setPageNumber(1)
-        // }
+
         fetch(`http://localhost:4000/articles/${categoryName}?page=${pageNumber}`).then(res => res.json())
             .then(data => {
                 if (data.error) {

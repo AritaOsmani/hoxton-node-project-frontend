@@ -71,6 +71,7 @@ export default function Header({ user, setUser }: Props) {
                     }}>Home</span>
                     {categories.map(category => <span onClick={() => {
                         navigate(`/categories/${category.name}`)
+                        setSideMenu(false)
                     }}>{category.name}</span>)}
 
 
@@ -110,6 +111,7 @@ export default function Header({ user, setUser }: Props) {
                 }}>Home</span>
                 {categories.map(category => <span onClick={() => {
                     navigate(`/categories/${category.name}`)
+                    setSideMenu(false)
                 }}>{category.name}</span>)}
 
             </div> : null}

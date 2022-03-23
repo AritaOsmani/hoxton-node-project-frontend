@@ -7,6 +7,7 @@ li{
     gap:20px;
     /* place-content: center; */
     padding:30px 80px;
+    cursor: pointer;
 }
 .categories-page-container .category-title{
     justify-self: start;
