@@ -1,0 +1,30 @@
+.singleArticle {
+    padding-top: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    justify-items: center;
+    gap: 20px;
+}
+
+.singleArticle .single-author-info img {
+    width: 100px;
+    border-radius: 50px;
+}
+
+.singleArticle .main-img {
+    width: 60%;
+}
+
+.singleArticle .rdw-editor-wrapper {
+    height: 100%;
+    border: none;
+    width: 100%;
+}
+
+.singleArticle .rdw-editor-wrapper .rdw-editor-main {
+    height: 100%;
+    padding: 1rem 0rem;
+    overflow: unset;
+}

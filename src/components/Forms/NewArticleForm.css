@@ -1,0 +1,49 @@
+.add-new-article-form {
+    padding: 50px 0;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    gap: 20px;
+    justify-content: center;
+}
+
+.add-new-article-form input,
+textarea {
+    font-size: 1.2rem;
+    border: none;
+    border-bottom: 1px solid gray;
+    padding: .2rem .5rem;
+    outline: none;
+}
+
+input.submit-button {
+    cursor: pointer;
+    margin: auto;
+    border: 1px solid #f79918;
+    background-color: #f79918;
+    color: white;
+    border-radius: 10px;
+    padding: 7px 30px;
+}
+
+.submit-button:hover {
+    background-color: #db8000;
+}
+
+.checkboxes {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: center;
+    gap: 20px;
+}
+
+.rdw-editor-wrapper {
+    height: 300px;
+    border: 1px solid gray;
+}
+
+.rdw-editor-main {
+    padding: .2rem .5rem;
+    height: calc(100% - 50px);
+}

@@ -2,16 +2,26 @@ import * as React from 'react';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import { Article } from '../Types';
+import { useNavigate } from 'react-router-dom';
 
-export default function PositionedMenu() {
+type Props ={
+    article: Article
+}
+export default function PositionedMenu({article}:Props) {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
+    
+    const navigate = useNavigate()
+
     const handleClick = (event: React.MouseEvent<HTMLElement>) => {
         setAnchorEl(event.currentTarget);
     };
     const handleClose = () => {
         setAnchorEl(null);
     };
+
+
 
     return (
         <div>
@@ -38,8 +48,11 @@ export default function PositionedMenu() {
             >
                 <MenuItem onClick={() => {
                     handleClose()
-                    console.log('inside menu item listener')
-                }}>Edit</MenuItem>
+                    navigate(`/update-article/${article.id}`)
+                
+                }}>
+                    Edit
+                </MenuItem>
                 <MenuItem onClick={handleClose}>Delete</MenuItem>
             </Menu>
         </div>

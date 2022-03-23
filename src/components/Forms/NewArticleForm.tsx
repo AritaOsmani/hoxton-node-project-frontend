@@ -41,20 +41,24 @@ export default function NewArticleForm({createArticle}:Props) {
         {errors.title && <span>This field is required</span>}
         <textarea placeholder="Intro" {...register("intro", { required: true })} />
         {errors.intro && <span>This field is required</span>}
-        {
-            categories?
-            categories.map(category => {
-                return (
-                    <label key={category.id} htmlFor={`checbox${category.id}`}>
-                       {category.name} <input  {...register("categories")} type="checkbox" value={category.name} />
-                    </label>
-                )
-            }):null
-        }
+        <div className="checkboxes">
+            {
+                categories?
+                categories.map(category => {
+                    return (
+                        <label key={category.id} htmlFor={`checbox${category.id}`}>
+                        {category.name} <input  {...register("categories")} type="checkbox" id={`checbox${category.id}`} value={category.name} />
+                        </label>
+                    )
+                }):null
+            }
+        </div>
         <input placeholder="Image Url" type={"url"} {...register("image", { required: true })} />
         {errors.image && <span>This field is required</span>}
 
-        <WysiwygEditor setContentState={setContentState} />
+        <WysiwygEditor 
+            setContentState={setContentState} 
+        />
         <input className="submit-button" type="submit" />
     </form>
   );

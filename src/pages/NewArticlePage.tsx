@@ -1,7 +1,5 @@
-import { useEffect, useState } from "react";
-import NewArticleForm from "../components/NewArticleForm/NewArticleForm";
-import WysiwygEditorReadOnly from "../components/WysiwygEditor/WysigEditorReadOnly";
-import WysiwygEditor from "../components/WysiwygEditor/WysiwygEditor";
+import { useNavigate } from "react-router-dom";
+import NewArticleForm from "../components/Forms/NewArticleForm";
 import { User } from "../Types";
 
 type Props ={
@@ -9,6 +7,7 @@ type Props ={
 }
 
 export default function NewArticlePage ({user}:Props){
+    const navigate = useNavigate()
 
     function createArticle(data:Object){
         fetch('http://localhost:4000/article',{
@@ -19,7 +18,7 @@ export default function NewArticlePage ({user}:Props){
             },
             
             body:JSON.stringify(data)
-        }).then(resp => resp.json()).then(result => console.log(result))
+        }).then(resp => resp.json()).then(result => navigate(`/article/${result.id}`))
     }
     if(!user) return <h1>You have to login first</h1>
 

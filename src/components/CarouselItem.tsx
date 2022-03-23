@@ -20,7 +20,12 @@ export default function CarouselItem({ trendingArticle }: Props) {
                     <span className='date'> - {getDate(trendingArticle.createdAt)}</span>
                 </div>
 
-                <h1 className='article-title'>{trendingArticle.title}</h1>
+                <h1
+                    className='article-title'
+                    onClick={()=>{
+                        navigate(`/article/${trendingArticle.id}`)
+                    }}
+                    >{trendingArticle.title}</h1>
                 <p>{trendingArticle.intro}</p>
                 <div className='author-info' onClick={(e) => {
                     e.stopPropagation()

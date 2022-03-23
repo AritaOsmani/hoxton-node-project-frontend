@@ -47,7 +47,12 @@ export default function Header({ user, setUser, setCurrentUser }: Props) {
                     <i className="far fa-angle-down"></i>
                 </div>
                 {accMenu ? <div className='acc-info'>
-                    <span>My account</span>
+                    <span onClick={()=>{
+                        navigate(`/user/${user.username}`)
+                    }}>My account</span>
+                    <span onClick={()=>{
+                        navigate('/create-article')
+                    }}>Create Article</span>
                     <span onClick={() => {
                         signOut()
                     }}>Sign out</span>

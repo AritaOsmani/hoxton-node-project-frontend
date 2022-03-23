@@ -6,14 +6,20 @@ import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 
 type Props={
     contentState:any
+    editable?: boolean
+    setContentState?: Function
 }
-export default function WysiwygEditorReadOnly({contentState}:Props){
-        return(
+export default function WysiwygEditorReadOnly({ setContentState, contentState, editable }:Props){
+    return(
         <>
             <Editor
-                readOnly
-                toolbarHidden
+                readOnly={!editable}
+                toolbarHidden={!editable}
                 contentState={contentState}
+                onContentStateChange={(event)=>{
+                    // @ts-ignore
+                    setContentState(event)
+                }}
             />
         </>
     )
