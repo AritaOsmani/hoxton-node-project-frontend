@@ -4,6 +4,7 @@ import './App.css'
 import Footer from './components/Footer'
 import Header from './components/Header'
 import Main from './components/Main'
+import CategoriesPage from './pages/CategoriesPage'
 import LogIn from './pages/LogIn'
 import NewArticlePage from './pages/NewArticlePage'
 import SignUp from './pages/SignUp'
@@ -49,8 +50,9 @@ function App() {
         <Route path='/login' element={<LogIn setUser={setUser} />} />
         <Route path='/user/:username' element={<UserPage userLoggedIn={user} currentUser={currentUser} setCurrentUser={setCurrentUser} />} />
         <Route path='/create-article' element={<NewArticlePage user={user} />} />
-        <Route path='/article/:id' element={<SingleArticlePage />}  />
-        <Route path='/update-article/:id' element={<UpdateArticlePage user={user} />}  />
+        <Route path='/article/:id' element={<SingleArticlePage />} />
+        <Route path='/update-article/:id' element={<UpdateArticlePage user={user} />} />
+        <Route path='/categories/:category' element={<CategoriesPage />} />
       </Routes>
       <Footer />
     </div>
