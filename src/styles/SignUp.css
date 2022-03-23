@@ -3,9 +3,6 @@
     display: grid;
     place-items: center;
     padding:30px;
-    position: fixed;
-    left:0;
-    right:0;
 }
 
 .signup-form{
