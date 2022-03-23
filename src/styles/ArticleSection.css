@@ -19,6 +19,7 @@
     place-items: start;
     height:420px;
     border: solid 1px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
 }
 .article-item .article-info-2{
     display: grid;
