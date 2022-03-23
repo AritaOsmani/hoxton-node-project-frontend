@@ -1,17 +1,23 @@
 import React from 'react'
+import { getCategories, getDate } from '../helpers'
+import { Article } from '../Types'
 
-export default function CategoryArticle() {
+type Props = {
+    article: Article
+}
+
+export default function CategoryArticle({ article }: Props) {
     return (
         <div className='category-page-article-item'>
-            <img src="https://preview.colorlib.com/theme/magdesign/images/ximg_4.jpg.pagespeed.ic.2DwdgZu3vw.webp" alt="" />
+            <img src={article.image} alt="" />
             <div className='category-page-article-info'>
                 <div className='category-page-category-date-user'>
-                    <span>Business, Travel</span>
-                    <span className='category-page-date'> -July 2,2020</span>
+                    <span>{getCategories(article.categories)}</span>
+                    <span className='category-page-date'> -{getDate(article.createdAt)}</span>
                 </div>
-                <h1 className='category-page-article-title'>Your most unhappy customers are your greatest source of learning.</h1>
+                <h1 className='category-page-article-title'>{article.title}</h1>
                 <p>
-                    Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
+                    {article.intro}
                 </p>
                 <div className='author-info' onClick={(e) => {
                     e.stopPropagation()
