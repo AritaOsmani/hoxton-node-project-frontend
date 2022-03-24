@@ -12,13 +12,14 @@ function comparePasswords(pass1: string, pass2: string) {
     return pass1 === pass2
 }
 
-export default function SignUp({ user, setUser }: Props) {
+export default function UpdateUser({ user, setUser }: Props) {
     const navigate = useNavigate()
 
-    function signUp(firstName: string, lastName: string, username:string, email: string, bio: string, password: string) {
-        fetch(`http://localhost:4000/users`, {
-            method: 'POST',
+    function updateUser(firstName: string, lastName: string, username:string, email: string, bio: string, password: string) {
+        fetch(`http://localhost:4000/users/${user?.id}`, {
+            method: 'PATCH',
             headers: {
+                Authorization: localStorage.token,
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({ firstName, lastName, username, email, bio, password })
@@ -32,7 +33,7 @@ export default function SignUp({ user, setUser }: Props) {
                 }
             })
     }
-
+    if(!user) return <h1>Please login first</h1>
     return (
         <div className='signup-container'>
 
@@ -49,7 +50,7 @@ export default function SignUp({ user, setUser }: Props) {
 
                 const passwordsMatch = comparePasswords(password, confirmPassword)
                 if (passwordsMatch) {
-                    signUp(firstName, lastName, username, email, bio, password)
+                    updateUser(firstName, lastName, username, email, bio, password)
                     navigate('/')
                     formEl.reset()
 
@@ -57,15 +58,15 @@ export default function SignUp({ user, setUser }: Props) {
                     alert('Passwords don\'t match. Please try again!')
                 }
             }}>
-                <h1>Join our community!</h1>
-                <input type="text" name="fName" placeholder='First name' required />
-                <input type="text" name='lName' placeholder='Last name' required />
-                <input type="text" name='username' placeholder='Username' required />
-                <input type="email" name="email" placeholder='Email' required />
-                <textarea name="bio" cols={5} rows={5} placeholder='Bio...'></textarea>
-                <input type="text" name="avatar" placeholder='Avatar URL' />
-                <input type="password" name="password" placeholder='Password' required />
-                <input type="password" name="confirmPass" placeholder='Confirm password' required />
+                <h1>Update your profile</h1>
+                <input type="text" defaultValue={user?.firstName} name="fName" placeholder='First name' required />
+                <input type="text" defaultValue={user?.lastName} name='lName' placeholder='Last name' required />
+                <input type="email" defaultValue={user?.email} name="email" placeholder='Email' required />
+                <input type="text" defaultValue={user?.username} name='username' placeholder='Username' required />
+                <textarea defaultValue={user?.bio} name="bio" cols={5} rows={5} placeholder='Bio...'></textarea>
+                <input type="text" defaultValue={user?.avatarImage} name="avatar" placeholder='Avatar URL' />
+                <input type="password"  name="password" placeholder='Password' required />
+                <input type="password"  name="confirmPass" placeholder='Confirm password' required />
                 <button type='submit' className='signup-button'>Sign up</button>
             </form>
         </div>

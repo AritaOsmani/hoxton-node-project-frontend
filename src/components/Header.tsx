@@ -53,6 +53,9 @@ export default function Header({ user, setUser }: Props) {
                         setAccMenu(false)
                     }}>Create Article</span>
                     <span onClick={() => {
+                        navigate('/update-user')
+                    }}>Account Settings</span>
+                    <span onClick={() => {
                         signOut()
                     }}>Sign out</span>
                 </div> : null}

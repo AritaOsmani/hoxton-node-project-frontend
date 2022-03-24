@@ -10,6 +10,7 @@ import NewArticlePage from './pages/NewArticlePage'
 import SignUp from './pages/SignUp'
 import SingleArticlePage from './pages/SingleArticlePage'
 import UpdateArticlePage from './pages/UpdateArticlePage'
+import UpdateUser from './pages/UpdateUser'
 import UserPage from './pages/UserPage'
 import { User } from './Types'
 
@@ -37,6 +38,7 @@ function App() {
         <Route path='/signup' element={<SignUp user={user} setUser={setUser} />} />
         <Route path='/login' element={<LogIn setUser={setUser} />} />
         <Route path='/user/:username' element={<UserPage user={user} />} />
+        <Route path='/update-user' element={<UpdateUser user={user} setUser={setUser} />} />
         <Route path='/create-article' element={<NewArticlePage user={user} />} />
         <Route path='/article/:id' element={<SingleArticlePage />} />
         <Route path='/update-article/:id' element={<UpdateArticlePage user={user} />} />
