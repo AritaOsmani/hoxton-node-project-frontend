@@ -23,6 +23,7 @@
     border: solid 1px rgba(0, 0, 0, 0.3);
     padding: 5px;
     border-radius: 5px;
+    background-color: unset;
 }
 .signup-form textarea{
     outline: none;
@@ -30,6 +31,7 @@
     padding: 5px;
     border-radius: 5px;
     resize: none;
+    background-color: unset;
 }
 .signup-button{
     margin: auto;
