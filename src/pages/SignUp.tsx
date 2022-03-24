@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import '../styles/SignUp.css'
-import { SignUpFrom, User } from '../types'
+import { SignUpFrom, User } from '../Types'
 
 type Props = {
     user: User | null,
