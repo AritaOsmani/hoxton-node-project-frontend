@@ -7,15 +7,31 @@ export default function MostPopular() {
     const [popularArticles, setPopularArticles] = useState<PopularArticle[]>([])
 
     useEffect(() => {
-        fetch(`http://localhost:4000/popular`).then(res => res.json())
-            .then(data => {
-                if (data.error) {
-                    alert(data.error)
-                } else {
-                    setPopularArticles(data)
+        if (localStorage.token) {
+            fetch(`http://localhost:4000/popular`, {
+                headers: {
+                    Authorization: localStorage.token
                 }
-            })
-    }, [])
+            }).then(res => res.json())
+                .then(data => {
+                    if (data.error) {
+                        alert(data.error)
+                    } else {
+                        setPopularArticles(data)
+                    }
+                })
+        } else {
+            fetch(`http://localhost:4000/popular`).then(res => res.json())
+                .then(data => {
+                    if (data.error) {
+                        alert(data.error)
+                    } else {
+                        setPopularArticles(data)
+                    }
+                })
+        }
+
+    }, [localStorage.token])
 
     return (
         <div className='most-popular-container'>
