@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import UserArticles from '../components/UserArticles'
 import UserComponent from '../components/UserComponent'
 import '../styles/UserPage.css'
-import { User } from '../Types'
+import { Article, User } from '../Types'
 
 type Props = {
     user: User | null
@@ -15,6 +15,7 @@ export default function UserPage({ user }: Props) {
     const params = useParams()
     const [userFetched, setUserFetched] = useState<User | null>(null)
     const [userMatches, setUserMatches] = useState(false)
+    const [userFetchedArticles, setUserFetchedArticles] = useState<Article[]>([])
 
     useEffect(() => {
         console.log("UseEffect Works")
@@ -25,25 +26,26 @@ export default function UserPage({ user }: Props) {
                     alert(data.error)
                 } else {
                     setUserFetched(data)
-                }   
+                    setUserFetchedArticles(data.articles)
+                }
             })
     }, [params.username])
 
-    useEffect(()=>{
-        if(userFetched){
-            if(userFetched?.id === user?.id){
+    useEffect(() => {
+        if (userFetched) {
+            if (userFetched?.id === user?.id) {
                 setUserMatches(true)
-            }else{
+            } else {
                 setUserMatches(false)
-            } 
+            }
         }
-    },[userFetched,user])
+    }, [userFetched, user])
 
     if (userFetched === null) return <h1>User not found</h1>
     return (
         <div className='user-page-container'>
             <UserComponent user={userFetched} />
-            <UserArticles articles={userFetched?.articles} userMatches={userMatches} />
+            <UserArticles userFetchedArticles={userFetchedArticles} userMatches={userMatches} setUserFetchedArticles={setUserFetchedArticles} />
         </div>
     )
 }

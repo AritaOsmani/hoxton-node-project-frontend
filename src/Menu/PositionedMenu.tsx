@@ -5,13 +5,14 @@ import MenuItem from '@mui/material/MenuItem';
 import { Article } from '../Types';
 import { useNavigate } from 'react-router-dom';
 
-type Props ={
+type Props = {
     article: Article
+    deleteArticle: (articleId: number) => void
 }
-export default function PositionedMenu({article}:Props) {
+export default function PositionedMenu({ article, deleteArticle }: Props) {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
-    
+
     const navigate = useNavigate()
 
     const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -49,11 +50,14 @@ export default function PositionedMenu({article}:Props) {
                 <MenuItem onClick={() => {
                     handleClose()
                     navigate(`/update-article/${article.id}`)
-                
+
                 }}>
                     Edit
                 </MenuItem>
-                <MenuItem onClick={handleClose}>Delete</MenuItem>
+                <MenuItem onClick={() => {
+                    handleClose()
+                    deleteArticle(article.id)
+                }}>Delete</MenuItem>
             </Menu>
         </div>
     );
