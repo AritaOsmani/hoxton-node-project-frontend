@@ -21,7 +21,7 @@ export default function ArticleItem({ article }: Props) {
                 </div>
 
                 <h1 className='article-title'>{article.title}.</h1>
-                <p>{article.intro}</p>
+                <p>{article.intro.substring(0, 50) + '...'}</p>
                 <div className='author-info' onClick={(e) => {
                     e.stopPropagation()
                     navigate(`/user/${article.author.username}`)
