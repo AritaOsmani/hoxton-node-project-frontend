@@ -67,16 +67,19 @@
 
 .category-date-user{
     display: grid;
-    grid-template-columns: repeat(2,auto) 50px ;
-    gap:5px;
+    grid-template-columns: repeat(2,auto) 1fr ;
+    gap:10px;
     place-content: start;
-    width: 100%;
-  
+}
+.positioned-menu-div{
+    justify-self: center;
+    margin-left:10px;
+   
 }
 
 .category-date-user .fa-ellipsis-h{
     font-size: 22px;
     cursor: pointer;
-    margin-left: 370px;
     color: #787A91;
+    
 }

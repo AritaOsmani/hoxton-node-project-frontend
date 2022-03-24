@@ -25,7 +25,7 @@ export default function PositionedMenu({ article, deleteArticle }: Props) {
 
 
     return (
-        <div>
+        <div className='positioned-menu-div'>
             <i id="demo-positioned-button"
                 aria-controls={open ? 'demo-positioned-menu' : undefined}
                 aria-haspopup="true"
