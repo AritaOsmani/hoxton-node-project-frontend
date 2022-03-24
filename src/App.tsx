@@ -13,17 +13,6 @@ import UpdateArticlePage from './pages/UpdateArticlePage'
 import UserPage from './pages/UserPage'
 import { User } from './Types'
 
-const userModel = {
-  id: 2,
-  email: "endi@email.com",
-  password: "$2a$08$DeiLwY.W9CdB9EAqEiojAeY4wdbfXFpt.CxM6oAk1EBVpyvwpftEq",
-  firstName: "Endi",
-  lastName: "Ymeri",
-  bio: "",
-  avatarImage: "https://robohash.org/default",
-  joinedAt: "2022-03-19T22:52:29.430Z",
-  articles: []
-}
 
 function App() {
   const [user, setUser] = useState<User | null>(null)
@@ -47,7 +36,7 @@ function App() {
         <Route path='/' element={<Main />} />
         <Route path='/signup' element={<SignUp user={user} setUser={setUser} />} />
         <Route path='/login' element={<LogIn setUser={setUser} />} />
-        <Route path='/user/:username' element={<UserPage user={user}/>} />
+        <Route path='/user/:username' element={<UserPage user={user} />} />
         <Route path='/create-article' element={<NewArticlePage user={user} />} />
         <Route path='/article/:id' element={<SingleArticlePage />} />
         <Route path='/update-article/:id' element={<UpdateArticlePage user={user} />} />

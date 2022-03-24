@@ -7,14 +7,31 @@ export default function TrendingSection() {
     const [trendingArticles, setTrendingArticles] = useState<Article[]>([])
 
     useEffect(() => {
-        fetch(`http://localhost:4000/articles`).then(res => res.json()).then(data => {
-            if (data.error) {
-                alert(data.error)
-            } else {
-                setTrendingArticles(data)
-            }
-        })
-    }, [])
+
+        if (localStorage.token) {
+            fetch(`http://localhost:4000/articles`, {
+                headers: {
+                    Authorization: localStorage.token
+                }
+            }).then(res => res.json()).then(data => {
+                if (data.error) {
+                    alert(data.error)
+                } else {
+                    setTrendingArticles(data)
+                }
+            })
+        } else {
+            fetch(`http://localhost:4000/articles`).then(res => res.json()).then(data => {
+                if (data.error) {
+                    alert(data.error)
+                } else {
+                    setTrendingArticles(data)
+                }
+            })
+        }
+
+
+    }, [localStorage.token])
 
     return (
         <div className='trending-container'>

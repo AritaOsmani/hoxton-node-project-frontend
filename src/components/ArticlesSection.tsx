@@ -8,16 +8,35 @@ export default function ArticlesSection() {
 
 
     useEffect(() => {
-        fetch(`http://localhost:4000/articles?page=1`).then(res => res.json())
-            .then(data => {
-                if (data.error) {
-                    alert(data.error)
-                } else {
-                    setArticles(data.articles)
 
+        if (localStorage.token) {
+            fetch(`http://localhost:4000/articles?page=1`, {
+                headers: {
+                    Authorization: localStorage.token
                 }
-            })
-    }, [])
+            }).then(res => res.json())
+                .then(data => {
+                    if (data.error) {
+                        alert(data.error)
+                    } else {
+                        setArticles(data.articles)
+
+                    }
+                })
+        } else {
+            fetch(`http://localhost:4000/articles?page=1`).then(res => res.json())
+                .then(data => {
+                    if (data.error) {
+                        alert(data.error)
+                    } else {
+                        setArticles(data.articles)
+
+                    }
+                })
+        }
+
+
+    }, [localStorage.token])
 
     return (
         <div className='articles-section'>
