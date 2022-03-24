@@ -79,7 +79,6 @@ export default function Header({ user, setUser }: Props) {
             </div>
         )
     }
-
     return (
         <div className='header-container'>
             <form action="" className='search-from'>

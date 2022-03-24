@@ -4,7 +4,6 @@ import '../styles/TrendingSection.css'
 import Carousel from 'react-material-ui-carousel'
 import { Article } from '../Types'
 export default function TrendingSection() {
-
     const [trendingArticles, setTrendingArticles] = useState<Article[]>([])
 
     useEffect(() => {
@@ -17,17 +16,17 @@ export default function TrendingSection() {
         })
     }, [])
 
-
     return (
         <div className='trending-container'>
             <h1>Trending</h1>
-            
-            <Carousel>
-                {
-                    trendingArticles.map(item => <CarouselItem trendingArticle={item} key={item.id} />)
-                }
+            <Carousel
+                interval={2000}
+                animation="slide"
+                fullHeightHover
+                swipe
+            >
+                {trendingArticles.map(item => <CarouselItem trendingArticle={item} key={item.id} />)}
             </Carousel>
-
         </div>
     )
 }

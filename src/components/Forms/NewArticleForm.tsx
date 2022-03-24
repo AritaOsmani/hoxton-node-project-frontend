@@ -18,16 +18,16 @@ type Category ={
 }
 
 export default function NewArticleForm({createArticle}:Props) {
-  const [contentState, setContentState] = useState("")
+    const [contentState, setContentState] = useState("")
     const [categories, setCategories] = useState<Category[]>()
 
-  const { register, handleSubmit, watch, formState: { errors } } = useForm<Inputs>();
+    const { register, handleSubmit, watch, formState: { errors } } = useForm<Inputs>();
 
-  const onSubmit: SubmitHandler<Inputs> = data => {
-        data.content = JSON.stringify(contentState)
-        createArticle(data)
-    };
-  
+    const onSubmit: SubmitHandler<Inputs> = data => {
+            data.content = JSON.stringify(contentState)
+            createArticle(data)
+        };
+        
     useEffect(()=>{
         fetch('http://localhost:4000/categories')
         .then(resp => resp.json())

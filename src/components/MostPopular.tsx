@@ -20,7 +20,7 @@ export default function MostPopular() {
     return (
         <div className='most-popular-container'>
             <h1>Most Popular Articles</h1>
-            <Carousel>
+            <Carousel className='setHeight'>
                 {popularArticles.map(popularArticle => <MostPopularArticle popularArticle={popularArticle} key={popularArticle.id} />)}
             </Carousel>
 

@@ -18,3 +18,7 @@
 .create-article-page {
     padding-top: 50px;
 }
+
+.setHeight>div {
+    height: 223px;
+}

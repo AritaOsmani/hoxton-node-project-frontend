@@ -12,7 +12,7 @@ type Props={
 export default function WysiwygEditorReadOnly({ setContentState, contentState, editable }:Props){
 
     const [newContentState, setNewContentState] = useState(contentState)
-
+    
     return(
         <>
             <Editor

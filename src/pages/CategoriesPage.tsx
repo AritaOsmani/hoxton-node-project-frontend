@@ -11,27 +11,23 @@ export default function CategoriesPage() {
     const [categoryArticles, setCategoryArticles] = useState<Article[]>([])
     const [pageNumber, setPageNumber] = useState(1)
     const [totalNumOfPages, setTotalNumOfPages] = useState(1)
-
-
+    
     useEffect(() => {
         setPageNumber(1)
         setTotalNumOfPages(1)
     }, [categoryName])
 
     useEffect(() => {
-
         fetch(`http://localhost:4000/articles/${categoryName}?page=${pageNumber}`).then(res => res.json())
             .then(data => {
                 if (data.error) {
                     alert(data.error)
                 } else {
                     setCategoryArticles(data.articles)
-                    setTotalNumOfPages(Math.ceil(data.articlesCount / 3))
+                    setTotalNumOfPages(Math.ceil(data.pageCount))
                 }
             })
     }, [categoryName, pageNumber])
-
-
     return (
         <div className='categories-page-container'>
             <h1 className='category-title'>{params.category}</h1>

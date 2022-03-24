@@ -33,7 +33,6 @@ export default function UserPost({ article, userMatches, userFetchedArticles, se
             })
     }
 
-
     return (
         <div className='user-page-item-container'>
             <img src={article.image} alt="" />
