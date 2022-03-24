@@ -55,6 +55,7 @@ export default function NewArticleForm({createArticle}:Props) {
         </div>
         <input placeholder="Image Url" type={"url"} {...register("image", { required: true })} />
         {errors.image && <span>This field is required</span>}
+        <img className="articleImg" src={watch("image")} alt="" />
 
         <WysiwygEditor 
             setContentState={setContentState} 

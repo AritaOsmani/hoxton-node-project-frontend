@@ -23,10 +23,10 @@ export default function NewArticlePage ({user}:Props){
     if(!user) return <h1>You have to login first</h1>
 
     return(
-        <>
+        <div className="create-article-page">
             <h1>Create new Article</h1>
             <NewArticleForm  createArticle={createArticle}/> 
-        </>
+        </div>        
     )
 }
 

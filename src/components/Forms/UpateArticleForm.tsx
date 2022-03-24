@@ -40,10 +40,22 @@ export default function UpdateArticleForm({ article , updateArticle}:Props) {
     <form 
         className="add-new-article-form"
         onSubmit={handleSubmit(onSubmit)}>
-        <input defaultValue={article.title} {...register("title", { required: true })} />
-        {errors.title && <span>This field is required</span>}
-        <textarea defaultValue={article.intro} {...register("intro", { required: true })} />
-        {errors.intro && <span>This field is required</span>}
+        <label htmlFor="title">
+            <p>Title:</p>
+            <input 
+                defaultValue={article.title} 
+                id="title"
+                {...register("title", { required: true })} />
+            {errors.title && <span>This field is required</span>}
+        </label>
+        <label htmlFor="intro">
+            <p>Intro:</p>
+            <textarea 
+                defaultValue={article.intro}
+                id="intro"
+                {...register("intro", { required: true })} />
+            {errors.intro && <span>This field is required</span>}
+        </label>
         <div className="checkboxes">
             {
                 categories?
@@ -64,6 +76,7 @@ export default function UpdateArticleForm({ article , updateArticle}:Props) {
         </div>
         <input defaultValue={article.image} type={"url"} {...register("image", { required: true })} />
         {errors.image && <span>This field is required</span>}
+        <img className="articleImg" src={watch("image")} alt="" />
 
         <WysiwygEditorReadOnly contentState={JSON.parse(article.content)} editable={true} setContentState={setContentState} />    
         <input className="submit-button" type="submit" />

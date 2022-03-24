@@ -13,3 +13,8 @@
     background-color: black !important;
     opacity: 1 !important;
 }
+
+.update-article-page,
+.create-article-page {
+    padding-top: 50px;
+}

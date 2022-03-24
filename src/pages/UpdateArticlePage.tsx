@@ -35,10 +35,10 @@ export default function UpdateArticlePage ({user}:Props){
     if(!user) return <h1>You have to login first</h1>
     if(!article) return <h1>Article not found</h1>
     return(
-        <>
+        <div className="update-article-page">
             <h1>Update Article</h1>
             <UpdateArticleForm article={article} updateArticle={updateArticle} />
-        </>
+        </div>
     )
 }
 

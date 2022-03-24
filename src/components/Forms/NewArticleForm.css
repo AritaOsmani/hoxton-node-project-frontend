@@ -4,16 +4,29 @@
     max-width: 1200px;
     margin: auto;
     display: grid;
-    gap: 20px;
+    gap: 50px;
     justify-content: center;
+}
+
+label p {
+    text-align: left;
+    padding: .2rem .5rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+input,
+textarea {
+    width: 100%;
+    border: 1px solid #222;
+    border-radius: 10px;
+    background-color: aliceblue;
 }
 
 .add-new-article-form input,
 textarea {
     font-size: 1.2rem;
-    border: none;
-    border-bottom: 1px solid gray;
-    padding: .2rem .5rem;
+    padding: .5rem 1.2rem;
     outline: none;
 }
 
@@ -27,6 +40,10 @@ input.submit-button {
     padding: 7px 30px;
 }
 
+.articleImg {
+    width: 400px;
+}
+
 .submit-button:hover {
     background-color: #db8000;
 }
@@ -36,6 +53,10 @@ input.submit-button {
     grid-auto-flow: column;
     justify-content: center;
     gap: 20px;
+}
+
+.checkboxes input {
+    margin-left: 5px;
 }
 
 .rdw-editor-wrapper {

@@ -38,7 +38,6 @@ export default function Header({ user, setUser }: Props) {
                     } else {
                         setAccMenu(true)
                     }
-
                 }}>
                     <i className="fas fa-user"></i>
                     <span>{user.firstName}</span>
