@@ -18,7 +18,8 @@ export default function SearchedArticles() {
             }).then(res => res.json())
                 .then(data => {
                     if (data.error) {
-                        alert(data.error)
+                        // alert(data.error)
+                        setSearchedArticles([])
                     } else {
                         setSearchedArticles(data)
                     }
@@ -27,7 +28,8 @@ export default function SearchedArticles() {
             fetch(`http://localhost:4000/search?search=${params.search}`).then(res => res.json())
                 .then(data => {
                     if (data.error) {
-                        alert(data.error)
+                        // alert(data.error)
+                        setSearchedArticles([])
                     } else {
                         setSearchedArticles(data)
                     }
