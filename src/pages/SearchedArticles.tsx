@@ -20,7 +20,10 @@ export default function SearchedArticles() {
     }, [params.search])
 
     if (searchedArticles.length === 0) {
-        return <h1>No matches found!</h1>
+        return <div className='not-found-container'>
+            <h1 className='not-found'>No matches found!</h1>
+        </div>
+
     }
 
     return (

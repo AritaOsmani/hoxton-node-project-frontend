@@ -18,3 +18,14 @@
     gap:30px;
     place-content: center;
 }
+.not-found-container{
+    display: grid;
+    place-items: center;
+    padding: 100px;
+    height:420px;
+}
+
+.not-found{
+    color:#f79918;
+    font-size: 40px;
+}
