@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import '../styles/Header.css'
-import { User, Category } from '../Types'
+import { User, Category, SearchForm } from '../Types'
 
 type Props = {
     user: User | null
@@ -26,8 +26,14 @@ export default function Header({ user, setUser }: Props) {
     if (user) {
         return (
             <div className='header-container'>
-                <form action="" className='search-from'>
-                    <input type="text" name="search" placeholder='Search...' />
+                <form action="" className='search-from' onSubmit={(e) => {
+                    e.preventDefault()
+                    const formEl = e.target as SearchForm
+                    const search = formEl.search.value
+                    navigate(`/articles/searched/${search}`)
+                    formEl.reset()
+                }}>
+                    <input type="text" name="search" placeholder='Search...' required />
                 </form>
                 <h1 onClick={() => {
                     navigate('/')
@@ -84,8 +90,14 @@ export default function Header({ user, setUser }: Props) {
     }
     return (
         <div className='header-container'>
-            <form action="" className='search-from'>
-                <input type="text" name="search" placeholder='Search...' />
+            <form action="" className='search-from' onSubmit={(e) => {
+                e.preventDefault()
+                const formEl = e.target as SearchForm
+                const search = formEl.search.value
+                navigate(`/articles/searched/${search}`)
+                formEl.reset()
+            }}>
+                <input type="text" name="search" placeholder='Search...' required />
             </form>
             <h1 onClick={() => {
                 navigate('/')

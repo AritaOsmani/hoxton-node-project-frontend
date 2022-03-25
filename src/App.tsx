@@ -7,6 +7,7 @@ import Main from './components/Main'
 import CategoriesPage from './pages/CategoriesPage'
 import LogIn from './pages/LogIn'
 import NewArticlePage from './pages/NewArticlePage'
+import SearchedArticles from './pages/SearchedArticles'
 import SignUp from './pages/SignUp'
 import SingleArticlePage from './pages/SingleArticlePage'
 import UpdateArticlePage from './pages/UpdateArticlePage'
@@ -43,6 +44,7 @@ function App() {
         <Route path='/article/:id' element={<SingleArticlePage />} />
         <Route path='/update-article/:id' element={<UpdateArticlePage user={user} />} />
         <Route path='/categories/:category' element={<CategoriesPage />} />
+        <Route path='/articles/searched/:search' element={<SearchedArticles />} />
       </Routes>
       <Footer />
     </div>

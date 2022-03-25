@@ -32,6 +32,7 @@ export type SignUpFrom = HTMLFormElement & {
     fName: HTMLInputElement,
     lName: HTMLInputElement,
     email: HTMLInputElement,
+    username: HTMLInputElement,
     bio: HTMLTextAreaElement,
     password: HTMLInputElement,
     confirmPass: HTMLInputElement,
@@ -54,4 +55,8 @@ export type Like = {
 }
 export type PopularArticle = Article & {
     _count: Like
+}
+export type SearchForm = HTMLFormElement & {
+    search: HTMLInputElement,
+    reset: () => void
 }
