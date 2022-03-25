@@ -9,15 +9,33 @@ export default function SearchedArticles() {
     const [searchedArticles, setSearchedArticles] = useState<Article[]>([])
 
     useEffect(() => {
-        fetch(`http://localhost:4000/search?search=${params.search}`).then(res => res.json())
-            .then(data => {
-                if (data.error) {
-                    alert(data.error)
-                } else {
-                    setSearchedArticles(data)
+
+        if (localStorage.token) {
+            fetch(`http://localhost:4000/search?search=${params.search}`, {
+                headers: {
+                    Authorization: localStorage.token
                 }
-            })
-    }, [params.search])
+            }).then(res => res.json())
+                .then(data => {
+                    if (data.error) {
+                        alert(data.error)
+                    } else {
+                        setSearchedArticles(data)
+                    }
+                })
+        } else {
+            fetch(`http://localhost:4000/search?search=${params.search}`).then(res => res.json())
+                .then(data => {
+                    if (data.error) {
+                        alert(data.error)
+                    } else {
+                        setSearchedArticles(data)
+                    }
+                })
+        }
+
+
+    }, [params.search, localStorage.token])
 
     if (searchedArticles.length === 0) {
         return <div className='not-found-container'>
